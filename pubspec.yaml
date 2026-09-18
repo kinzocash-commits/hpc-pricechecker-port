@@ -1,0 +1,31 @@
+name: cs_price_scanner
+description: CS Price Scanner for Windows - Barcode scanner with MySQL price lookup
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  mysql1: ^0.20.0
+  shared_preferences: ^2.2.2
+  crypto: ^3.0.3
+  device_info_plus: ^9.1.0
+  window_manager: ^0.3.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+
+flutter:
+  platforms:
+    windows:
+      desktop: true
