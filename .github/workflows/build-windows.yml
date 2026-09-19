@@ -19,8 +19,8 @@ jobs:
           flutter-version: '3.22.2'
           cache: true
 
-      - name: Enable Windows desktop
-        run: flutter config --enable-windows-desktop
+      - name: Disable Analytics
+        run: flutter --disable-analytics
 
       - name: Get dependencies
         run: flutter pub get
