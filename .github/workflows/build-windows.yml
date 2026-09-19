@@ -25,6 +25,9 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Debug - List Windows dir
+        run: dir windows/
+
       - name: Build Windows release
         run: flutter build windows --release
 
