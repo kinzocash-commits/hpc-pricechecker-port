@@ -1,0 +1,25 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+*.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Windows build artifacts
+windows/flutter/ephemeral/
+
+# Backups (local only)
+backups/
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
