@@ -25,7 +25,6 @@ flutter:
   assets:
     - assets/
 
-flutter:
   platforms:
     windows:
       desktop: true
