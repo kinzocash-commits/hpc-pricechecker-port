@@ -25,12 +25,19 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
+      - name: Prepare Windows Build
+        # Directly generate the Windows build files with the correct generator
+        # before running the full build command.
+        run: |
+          mkdir -p build/windows
+          cmake -S windows -B build/windows -G "Visual Studio 17 2022"
+
       - name: Build Windows
-        # Explicitly set the generator to VS 2022 to avoid VS 2019 hardcoding
-        run: flutter build windows --release --cmake-args="-GVisual Studio 17 2022"
+        # Now that we've set the generator, this should pick up the existing build configuration.
+        run: flutter build windows --release
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: cs-price-scanner-windows
-          path: build/windows/x64/runner/Release/
+          path: build/windows/runner/Release/
