@@ -25,14 +25,17 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Create Windows project
-        run: flutter create --platforms windows .
-
-      - name: Build Windows release
-        run: flutter build windows --release
+      - name: Build Windows
+        run: |
+          # Use MSBuild directly, bypassing the platform check
+          # Flutter creates windows project files to match the package name CS_PRICE_SCANNER
+          cd windows
+          cmake -Bbuild -S. -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release
+        shell: bash
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: cs-price-scanner-windows
-          path: build/windows/x64/runner/Release/
+          path: windows/build/Release/
